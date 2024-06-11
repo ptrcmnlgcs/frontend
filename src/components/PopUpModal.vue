@@ -74,6 +74,16 @@
     text-align: right;
   }
 
+  .btn-primary{
+    background-color: gray;
+    border-color: gray;
+   
+    
+  }
+.btn-primary:hover{
+  background-color: gray;
+    border-color: gray;
 
+}
   </style>
   
