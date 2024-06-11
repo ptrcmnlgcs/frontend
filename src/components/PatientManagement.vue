@@ -388,14 +388,14 @@ tbody:hover tr:hover td {
 
 .btn-warning {
     color: #212529;
-    background-color: #ffc107;
-    border-color: #ffc107;
+    background-color: #428cfc;
+    border-color: #428cfc;
 }
 
 .btn-warning:hover {
     color: #212529;
-    background-color: #e0a800;
-    border-color: #d39e00;
+    background-color: #0978f7;
+    border-color: #0978f7;
 }
 
 
