@@ -34,22 +34,46 @@
 
 <Modal v-if="showAddAppointmentModal" @close="showAddAppointmentModal = false">
     <template v-slot:header>
-        <div class="modal-header">
-            <h5>Add a new appointment</h5>
-            <button class="close-button" @click="$emit('close')">Close</button> <!-- Apply the close-button class here -->
-        </div>
+        <h5>Add a new appointment</h5>
     </template>
-    <!-- Rest of your Modal content -->
-</Modal>
-
-<Modal v-if="showEditAppointmentModal" @close="showEditAppointmentModal = false">
-    <template v-slot:header>
-        <div class="modal-header">
-            <h5>Edit appointment</h5>
-            <button class="close-button" @click="$emit('close')">Close</button> <!-- Apply the close-button class here -->
-        </div>
+    <template v-slot:body>
+        <form @submit.prevent="postAppointment()">
+            <div class="form-group">
+                <label for="patientName">Patient Name</label>
+                <select id="patientName" class="form-control" v-model="newAppointmentData.patientID" required>
+                    <option value="" disabled selected>Select Patient</option>
+                    <option v-for="patient in patients" :key="patient.id" :value="patient.id">{{ patient.name }}
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="doctorName">Doctor Name</label>
+                <select id="doctorName" class="form-control" v-model="newAppointmentData.doctorID" required>
+                    <option value="" disabled selected>Select Doctor</option>
+                    <option v-for="doctor in doctors" :key="doctor.id" :value="doctor.id">{{ doctor.name }}
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="appointmentDate">Date</label>
+                <input type="date" name="appt" id="appointmentDate" v-model="date" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="appointmentTime">Time</label>
+                <input type="time" name="appt" id="appointmentTime" v-model="time" class="form-control" required>
+            </div>
+            <!-- <div class="form-group">
+                <label for="Status">Status</label>
+                <select id="Status" class="form-control" v-model="newAppointmentData.status" required>
+                    <option value="" disabled selected>Status</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Approved">Approved</option>
+                    <option value="Done">Done</option>
+                </select>
+            </div> -->
+            <button type="submit" class="btn btn-primary m-1  btn-block">Add</button>
+        </form>
     </template>
-    <!-- Rest of your Modal content -->
 </Modal>
 
 <Modal v-if="showEditAppointmentModal" @close="showEditAppointmentModal = false">
@@ -579,15 +603,6 @@ tbody:hover tr:hover td {
     color: #212529;
     background-color: #428cfc;
     border-color: #428cfc;
-}
-.modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.close-button {
-    background-color: grey;
 }
 
 .btn-warning:hover {

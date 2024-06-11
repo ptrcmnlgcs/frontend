@@ -285,6 +285,8 @@ export default {
 </script>
 
 <style scoped>
+
+
 .hello h1 {
     padding-top: 100px;
     font-family: 'Courier New', Courier, monospace;
@@ -422,16 +424,17 @@ tbody:hover tr:hover td {
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
 }
 
+
 .btn-primary {
     color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
+    background-color: #3484fc;
+    border-color: #3484fc;
 }
 
 .btn-primary:hover {
     color: #fff;
-    background-color: #0069d9;
-    border-color: #0062cc;
+    background-color: #0978f7;
+    border-color: #0978f7;
 }
 
 .btn-danger {
@@ -448,31 +451,38 @@ tbody:hover tr:hover td {
 
 .btn-info {
     color: #fff;
-    background-color: #17a2b8;
-    border-color: #17a2b8;
+    background-color: #28a745;
+    border-color: #28a745;
 }
 
 .btn-info:hover {
     color: #fff;
-    background-color: #138496;
-    border-color: #117a8b;
+    background-color: #218838;
+    border-color: #1e7e34;
 }
 
 .btn-warning {
     color: #212529;
-    background-color: #ffc107;
-    border-color: #ffc107;
+    background-color: #3484fc;
+    border-color: #3484fc;
 }
 
 .btn-warning:hover {
     color: #212529;
-    background-color: #e0a800;
-    border-color: #d39e00;
+    background-color: #0978f7;
+    border-color: #0978f7;
 }
 
 
-.btn-block {
+/* .btn-block {
     display: block;
     width: 100%;
+    background-color: #28a745;
+    border-color: #28a745;
   }
+  .btn-block:hover{
+    color: #fff;
+    background-color: #218838;
+    border-color: #1e7e34;
+  } */
 </style>
