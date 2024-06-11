@@ -2,7 +2,7 @@
 <DashboardView />
 <div class="hello">
     <h1>User Management</h1>
-    <button class="btn btn-info btn-sm m-1" @click="addDoctor()">Add a User</button>
+    <button class="btn btn-success btn-sm m-1" @click="addDoctor()">Add a User</button>
     <table class="table table-striped table-bordered">
         <thead class="thead-dark">
             <tr>
@@ -217,7 +217,6 @@ export default {
 <style scoped>
 .hello h1 {
     padding-top: 100px;
-    font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
 }
 
@@ -388,16 +387,28 @@ tbody:hover tr:hover td {
     border-color: #117a8b;
 }
 
+.btn-success {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success:hover {
+    color: #fff;
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
 .btn-warning {
-    color: #212529;
-    background-color: #ffc107;
-    border-color: #ffc107;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
 }
 
 .btn-warning:hover {
-    color: #212529;
-    background-color: #e0a800;
-    border-color: #d39e00;
+    color: #fff;
+    background-color: #0069d9;
+    border-color: #0062cc;
 }
 
 .btn-block {

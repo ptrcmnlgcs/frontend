@@ -1,7 +1,6 @@
 <template>
 <nav>
     <div class="wrapper">
-        <div class="logo"><a>Dashboard</a></div>
         <input type="radio" name="slider" id="menu-btn">
         <input type="radio" name="slider" id="close-btn">
         <ul class="nav-links">
@@ -156,14 +155,7 @@ nav .wrapper {
     margin: auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-}
-
-.wrapper .logo a {
-    color: #f2f2f2;
-    font-size: 30px;
-    font-weight: 600;
-    text-decoration: none;
+    justify-content: flex-end;
 }
 
 .wrapper .nav-links {

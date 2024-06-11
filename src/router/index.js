@@ -1,5 +1,4 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-import DoctorManagement from '../components/DoctorManagement.vue';
 import PatientManagement from '@/components/PatientManagement.vue';
 import AppointmentManagement from '@/components/AppointmentManagement.vue';
 import UserManagement from '@/components/UserManagement.vue';
@@ -22,12 +21,6 @@ const routes = [{
         name: 'register',
         component: () =>
             import ('../views/RegisterView.vue')
-    },
-    {
-        path: '/doctors',
-        name: 'DoctorManagement',
-        component: DoctorManagement,
-        meta: { requiresAuth: true }
     },
     {
         path: '/patients',
