@@ -217,6 +217,7 @@ export default {
 <style scoped>
 .hello h1 {
     padding-top: 100px;
+    font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
 }
 

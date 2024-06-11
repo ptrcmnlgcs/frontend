@@ -5,9 +5,6 @@
         <input type="radio" name="slider" id="close-btn">
         <ul class="nav-links">
             <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
-            <!-- <li>
-                <router-link v-if="isAdmin" to="/doctors" class="nav-link">Doctor</router-link>
-            </li> -->
             <li v-if="isAdmin">
                 <router-link to="/appointments" class="nav-link">Appointment</router-link>
             </li>
@@ -15,16 +12,13 @@
                 <router-link to="/medicalrecords" class="nav-link">Medical Record</router-link>
             </li>
             <li v-if="isAdmin">
-                <router-link to="/users" class="nav-link">User List</router-link>
-            </li>
-            <li v-if="isDoctor">
-                <router-link to="/patients" class="nav-link">My Patients</router-link>
+                <router-link to="/users" class="nav-link">User Management</router-link>
             </li>
             <li v-if="isDoctor || isPatient">
-                <router-link to="/appointments" class="nav-link">My Appointments</router-link>
+                <router-link to="/appointments" class="nav-link">Appointments</router-link>
             </li>
             <li v-if="isDoctor || isPatient">
-                <router-link to="/medicalrecords" class="nav-link">My Medical Records</router-link>
+                <router-link to="/medicalrecords" class="nav-link">Medical Records</router-link>
             </li>
 
             <li>
