@@ -2,7 +2,7 @@
 <DashboardView />
 <div class="hello">
     <h1>User Management</h1>
-    <button class="btn btn-success btn-sm m-1" @click="addDoctor()">Add a User</button>
+    <button class="btn btn-info btn-sm m-1" @click="addDoctor()">Add a User</button>
     <table class="table table-striped table-bordered">
         <thead class="thead-dark">
             <tr>
@@ -194,25 +194,26 @@ export default {
             this.showeditUserModal = false;
             this.fetchAllUsers();
         },
-        async deleteUser(doctor) {
-            const index = this.doctors.findIndex(d => d.id === doctor.id);
-            if (index !== -1) {
-                this.doctors.splice(index, 1);
-            }
-            try {
-                await axios.delete(`http://127.0.0.1:8000/api/doctor/${doctor.id}`, {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': 'Bearer ' + localStorage.getItem('token')
-                    }
-                });
-            } catch (error) {
-                console.error('There was an error deleting the product:', error);
+        async deleteUser(user) {
+            const confirmed = window.confirm(`Are you sure you want to delete user ${user.name}?`);
+            if (confirmed) {
+                try {
+                    await axios.delete(`http://127.0.0.1:8000/api/doctor/${user.id}`, {
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': 'Bearer ' + localStorage.getItem('token')
+                        }
+                    });
+                    this.fetchAllUsers();
+                } catch (error) {
+                    console.error('There was an error deleting the product:', error);
+                }
             }
         }
     }
 };
 </script>
+
 
 <style scoped>
 .hello h1 {
@@ -388,28 +389,16 @@ tbody:hover tr:hover td {
     border-color: #117a8b;
 }
 
-.btn-success {
-    color: #fff;
-    background-color: #28a745;
-    border-color: #28a745;
-}
-
-.btn-success:hover {
-    color: #fff;
-    background-color: #218838;
-    border-color: #1e7e34;
-}
-
 .btn-warning {
-    color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
+    color: #212529;
+    background-color: #ffc107;
+    border-color: #ffc107;
 }
 
 .btn-warning:hover {
-    color: #fff;
-    background-color: #0069d9;
-    border-color: #0062cc;
+    color: #212529;
+    background-color: #e0a800;
+    border-color: #d39e00;
 }
 
 .btn-block {

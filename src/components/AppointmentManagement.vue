@@ -62,15 +62,6 @@
                 <label for="appointmentTime">Time</label>
                 <input type="time" name="appt" id="appointmentTime" v-model="time" class="form-control" required>
             </div>
-            <!-- <div class="form-group">
-                <label for="Status">Status</label>
-                <select id="Status" class="form-control" v-model="newAppointmentData.status" required>
-                    <option value="" disabled selected>Status</option>
-                    <option value="Pending">Pending</option>
-                    <option value="Approved">Approved</option>
-                    <option value="Done">Done</option>
-                </select>
-            </div> -->
             <button type="submit" class="btn btn-primary m-1  btn-block">Add</button>
         </form>
     </template>
@@ -391,20 +382,23 @@ export default {
             this.showEditAppointmentModal = false;
             this.fetchAppointments();
         },
-        async deleteAppointment(appointment) {
-            const index = this.appointments.findIndex(a => a.id === appointment.id);
-            if (index !== -1) {
-                this.appointments.splice(index, 1);
-            }
-            try {
-                await axios.delete(`http://127.0.0.1:8000/api/appointments/${appointment.id}`, {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': 'Bearer ' + localStorage.getItem('token')
-                    }
-                });
-            } catch (error) {
-                console.error('There was an error deleting the product:', error);
+                async deleteAppointment(appointment) {
+            const confirmed = window.confirm(`Are you sure you want to delete this appointment?`);
+            if (confirmed) {
+                const index = this.appointments.findIndex(a => a.id === appointment.id);
+                if (index !== -1) {
+                    this.appointments.splice(index, 1);
+                }
+                try {
+                    await axios.delete(`http://127.0.0.1:8000/api/appointments/${appointment.id}`, {
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': 'Bearer ' + localStorage.getItem('token')
+                        }
+                    });
+                } catch (error) {
+                    console.error('There was an error deleting the appointment:', error);
+                }
             }
         },
         formatDateTime(datetimeString) {

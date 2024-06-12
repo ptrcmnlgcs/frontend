@@ -259,19 +259,22 @@ export default {
             this.fetchAllMedicalRecords();
         },
         async deleteMedicalRecord(record) {
-            const index = this.records.findIndex(r => r.id === record.id);
-            if (index !== -1) {
-                this.records.splice(index, 1);
-            }
-            try {
-                await axios.delete(`http://127.0.0.1:8000/api/medical_records/${record.id}`, {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': 'Bearer ' + localStorage.getItem('token')
-                    }
-                });
-            } catch (error) {
-                console.error('There was an error deleting the product:', error);
+            const confirmed = window.confirm(`Are you sure you want to delete this medical record?`);
+            if (confirmed) {
+                const index = this.records.findIndex(r => r.id === record.id);
+                if (index !== -1) {
+                    this.records.splice(index, 1);
+                }
+                try {
+                    await axios.delete(`http://127.0.0.1:8000/api/medical_records/${record.id}`, {
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': 'Bearer ' + localStorage.getItem('token')
+                        }
+                    });
+                } catch (error) {
+                    console.error('There was an error deleting the product:', error);
+                }
             }
         },
         loadUserFromLocalStorage() {
@@ -283,6 +286,7 @@ export default {
     }
 };
 </script>
+
 
 <style scoped>
 
