@@ -49,7 +49,7 @@
             <div class="form-group">
                 <label for="userType">User Type:</label>
                 <select class="form-control" id="userType" v-model="newUserData.userType" required>
-                    <!-- <option value="admin">Administrator</option> -->
+
                     <option value="doctor">Doctor</option>
                     <option value="patient">Patient</option>
                 </select>

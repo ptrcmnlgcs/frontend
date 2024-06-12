@@ -40,9 +40,9 @@
         <form @submit.prevent="postAppointment()">
             <div class="form-group">
                 <label for="patientName">Patient Name</label>
-                <select id="patientName" class="form-control" v-model="newAppointmentData.patientID" required>
+                <select id="patientName" class="form-control" v-model="newAppointmentData.patientID" disabled>
                     <option value="" disabled selected>Select Patient</option>
-                    <option v-for="patient in patients" :key="patient.id" :value="patient.id">{{ patient.name }}
+                    <option v-for="patient in patients" :key="patient.id" :value="patient.id" >{{ patient.name }}
                     </option>
                 </select>
             </div>
